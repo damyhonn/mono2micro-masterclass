@@ -7,7 +7,7 @@ import jakarta.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("hotel")
-public class HotelResources {
+public class HotelResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -20,6 +20,13 @@ public class HotelResources {
     @Produces(MediaType.APPLICATION_JSON)
     public Hotel findById(@QueryParam("id") long id) {
         return Hotel.findById(id);
+    }
+
+    @GET
+    @Path("findByTravelOrderId")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Hotel findByTravelOrderId(@QueryParam("travelOrderId") long travelOrderId) {
+        return Hotel.findById(travelOrderId);
     }
 
     @Transactional
