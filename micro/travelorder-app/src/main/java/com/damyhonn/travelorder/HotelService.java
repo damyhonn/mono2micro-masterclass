@@ -10,7 +10,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 import java.time.temporal.ChronoUnit;
 
-@RegisterRestClient(baseUri = "http://localhost:8082/hotel")
+@RegisterRestClient(baseUri = "http://hotel-app-damyhonn-dev.apps.sandbox-m3.1530.p1.openshiftapps.com/hotel")
 public interface HotelService {
 
     @GET

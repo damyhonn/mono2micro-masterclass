@@ -1,5 +1,6 @@
 package com.damyhonn.travelorder;
 
+import io.smallrye.common.annotation.RunOnVirtualThread;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -20,7 +21,9 @@ public class TravelOrderResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @RunOnVirtualThread
     public List<TravelOrderDTO> orders() {
+        System.out.println(Thread.currentThread());
         return TravelOrder.<TravelOrder>listAll().stream().map(
                 order -> TravelOrderDTO.of(order,
                         flightService.findByTravelOrderId(order.id),
